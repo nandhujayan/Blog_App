@@ -20,3 +20,12 @@ def AddPost(request):
             return HttpResponse(json.dumps({"status":"new Post  added success"}))
         else:
             return HttpResponse(json.dumps({"status":"Post addedFailed"}))
+
+
+@csrf_exempt
+def viewAll(request):
+    if request.method=="POST":
+        postlist=PostModel.objects.all()
+        serialize_data=PostSerailizer(postlist,many=True)
+        return HttpResponse(json.dumps(serialize_data.data))
+    

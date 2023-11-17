@@ -5,6 +5,6 @@ from django.db import models
 class PostModel(models.Model):
      userid=models.CharField(default="", max_length=100)
      title=models.CharField(default="", max_length=100)
-     message=models.CharField(default="", max_length=100)
+     message=models.CharField(default="", max_length=1000)
     
    
